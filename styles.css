@@ -1,0 +1,400 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%); /* Tonos de rosa más vibrantes */
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #4a002a; /* Color de texto más oscuro para mejor contraste */
+}
+
+/* Mensaje inicial */
+.initial-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: pointer;
+    animation: gradientShift 3s ease infinite;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4); }
+    50% { background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493); }
+}
+
+.initial-content {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+}
+
+.initial-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+.initial-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.initial-instruction {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.5; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Fondo animado con pétalos de rosa */
+.petals-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ff69b4;
+    border-radius: 50% 0 50% 0;
+    animation: petalFall 8s linear infinite;
+    opacity: 0.7;
+    transform: rotate(45deg);
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; background: #ff69b4; }
+.petal:nth-child(2) { left: 20%; animation-delay: 1s; background: #ff1493; }
+.petal:nth-child(3) { left: 30%; animation-delay: 2s; background: #ff69b4; }
+.petal:nth-child(4) { left: 40%; animation-delay: 3s; background: #ff91a4; }
+.petal:nth-child(5) { left: 50%; animation-delay: 1.5s; background: #ff69b4; }
+.petal:nth-child(6) { left: 60%; animation-delay: 2.5s; background: #ff1493; }
+.petal:nth-child(7) { left: 70%; animation-delay: 0.5s; background: #ff91a4; }
+.petal:nth-child(8) { left: 80%; animation-delay: 3.5s; background: #ff69b4; }
+.petal:nth-child(9) { left: 90%; animation-delay: 4s; background: #ff1493; }
+.petal:nth-child(10) { left: 95%; animation-delay: 4.5s; background: #ff91a4; }
+
+@keyframes petalFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Header principal romántico */
+.romantic-header {
+    text-align: center;
+    padding: 100px 20px 80px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.2));
+    border-radius: 0 0 50px 50px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.romantic-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff69b4" opacity="0.3"/></svg>') repeat;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5.5rem; /* Aumentado para mayor impacto */
+    font-weight: 700;
+    color: #800040; /* Color más oscuro para mejor visibilidad */
+    margin-bottom: 30px; /* Ajustado */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Aumentado */
+    color: #a00050; /* Color más oscuro */
+    margin-bottom: 40px; /* Ajustado */
+    font-weight: 500;
+    font-style: italic;
+}
+
+.love-message {
+    font-size: 1.6rem; /* Aumentado */
+    color: #5a002a; /* Color más oscuro */
+    font-weight: 400;
+    max-width: 800px; /* Aumentado */
+    margin: 0 auto 60px; /* Ajustado */
+    line-height: 1.9; /* Aumentado */
+}
+
+.heart-animation {
+    font-size: 3rem;
+    animation: heartPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px #ff69b4);
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.3); }
+    to { text-shadow: 2px 2px 8px rgba(214, 51, 132, 0.6), 0 0 20px rgba(255, 105, 180, 0.4); }
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Container general */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Secciones */
+.pets-section, .fresita-section, .love-buttons-section, .music-section, .drawings-section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem; /* Aumentado */
+    font-weight: 700;
+    color: #800040; /* Color más oscuro para mejor visibilidad */
+    text-align: center;
+    margin-bottom: 70px; /* Ajustado */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Ajustado */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px; /* Aumentado */
+    height: 5px; /* Aumentado */
+    background: linear-gradient(90deg, #ff69b4, #ff1493, #ff69b4);
+    border-radius: 3px;
+}
+
+/* Sección de música */
+.music-section {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.4), rgba(255, 20, 147, 0.3));
+    border-radius: 30px;
+    margin: 40px 20px;
+    padding: 80px 0;
+}
+
+.spotify-container {
+    background: rgba(255, 255, 255, 0.99); /* Fondo más opaco */
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.5); /* Sombra más pronunciada */
+    border: 3px solid #ff69b4;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-description {
+    text-align: center;
+    font-size: 1.5rem; /* Aumentado */
+    color: #5a002a; /* Color más oscuro */
+    margin-bottom: 35px; /* Ajustado */
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.pet-text {
+    font-size: 1.4rem; /* Aumentado */
+    color: #5a002a; /* Color más oscuro */
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.fresita-text {
+    font-size: 1.4rem; /* Aumentado */
+    color: #5a002a; /* Color más oscuro */
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.8; /* Ajustado */
+    text-align: center;
+    font-style: italic;
+}
+
+.drawings-description {
+    text-align: center;
+    font-size: 1.5rem; /* Aumentado */
+    color: #5a002a; /* Color más oscuro */
+    margin-bottom: 50px; /* Ajustado */
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Footer romántico */
+.romantic-footer {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.5), rgba(255, 20, 147, 0.4));
+    text-align: center;
+    padding: 80px 20px; /* Ajustado */
+    margin-top: 120px; /* Ajustado */
+    border-top: 4px solid #ff69b4;
+    position: relative;
+}
+
+.footer-text {
+    color: #800040; /* Color más oscuro */
+    font-size: 1.5rem; /* Aumentado */
+    margin-bottom: 25px; /* Ajustado */
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-decoration {
+    font-size: 2.5rem; /* Aumentado */
+    margin-top: 30px; /* Ajustado */
+    animation: decorationFloat 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 4rem;
+    }
+    
+    .subtitle {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .love-message, .music-description, .pet-text, .fresita-text, .drawings-description, .footer-text {
+        font-size: 1.3rem;
+    }
+
+    .initial-title {
+        font-size: 3.5rem;
+    }
+    
+    .initial-text {
+        font-size: 1.4rem;
+    }
+
+    .initial-instruction {
+        font-size: 1.1rem;
+    }
+
+    .love-button {
+        font-size: 1.1rem;
+        padding: 20px 28px;
+    }
+
+    .button-icon {
+        font-size: 1.3rem;
+    }
+
+    .footer-decoration {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 3.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .initial-title {
+        font-size: 2.8rem;
+    }
+    
+    .initial-text {
+        font-size: 1.2rem;
+    }
+
+    .love-message, .music-description, .pet-text, .fresita-text, .drawings-description, .footer-text {
+        font-size: 1.2rem;
+    }
+
+    .love-button {
+        font-size: 1rem;
+        padding: 18px 25px;
+    }
+
+    .button-icon {
+        font-size: 1.1rem;
+    }
+
+    .footer-decoration {
+        font-size: 1.8rem;
+    }
+}
+
